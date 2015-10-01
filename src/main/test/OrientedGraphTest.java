@@ -35,7 +35,7 @@ public class OrientedGraphTest {
   @Test
   public void testPathIfExistsByBFS() {
     Graph graph = GraphBuilder.newOrientedGraph()
-            .withEdge(1, 3)
+            .withEdge(1,3)
             .withEdge(3,4)
             .withEdge(3,2)
             .withEdge(4,5)

@@ -34,7 +34,7 @@ public abstract class Graph {
     if (!edges.contains(edge))
       this.edges.add(edge);
     else
-      throw new IllegalArgumentException("Duplicate edge: " + edge);
+      throw new IllegalArgumentException("Duplicated edge: " + edge);
   }
 
   public List<Edge> getPath(Vertex start, Vertex finish) {

@@ -6,7 +6,7 @@ import graph.Vertex;
 import java.util.*;
 
 /**
- * Depth-first search Algorithm
+ * Depth First Search Algorithm
  *
  * User: Dmitriy
  * Date: 29.09.2015

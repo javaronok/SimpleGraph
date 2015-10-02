@@ -1,44 +1,42 @@
-Упрощённая библиотека работы с графами.
+Simple Graph library.
 
-Реализованы два типа графа:
-- Ориентированный (направленный). Класс: OrientedGraph.java
-- Неориентированный. Класс: UndirectedGraph.java
+Implemented two types of graphs:
+- Oriented (directed). Class: OrientedGraph.java
+- Undirected. Class: UndirectedGraph.java
 
-Класс реализует методы добавления вершин (addVertex) и связей (addEdge).
+Classes implement methods of add vertex (addVertex) and edges (addEdge) to the graph.
 
-Метод обхода вершин для поиска пути (getPath) базового класса Graph.java реализван двумя алгоритмами:
-- DFS. Обход графа в глубину. (DFSGraphAlgorithm.java)
-- ВFS. Обход графа в ширину. (ВFSGraphAlgorithm.java)
+Method of search path for vertexes (getPath) in based class Graph.java been implemented with two algorithms:
+- DFS. Traversing the graph in depth (Depth First Search). (DFSGraphAlgorithm.java)
+- ВFS. Traversing the graph in width (Breadth First Search). (ВFSGraphAlgorithm.java)
 
-Классы поддерживыемых алгоритмов зарегистрированы в GraphAlgorithms.java.
-Метод Graph::getPath позволяет выбрть алгоитм или использовать алгоритм по умолчанию.
+Class of supported algorithms registered in GraphAlgorithms.java.
+Method Graph::getPath allow choose algorithm or use default.
 
-Для удобного построения структуры графа написан класс билдера: GraphBuilder.
-Пример использования:
+For useful construction of graph structure was written builder class: GraphBuilder.
+Usage example:
 Graph graph = GraphBuilder.newOrientedGraph().withEdge(1,3).withEdge(3,4).withEdge(3,2).withEdge(4,5).build();
 
-Для проверки работы и помощи при использовании в разработке написаны Unit-тесты для ориентированно (OrientedGraphTest) и неориентированного (UndirectedGraphTest) графов.
-В тестах проверены варианты нахождения существующих и несуществующих путей для ориентированного и неориентрированного графа с использованием всех поддерживаемых алгоритмов.
+Was developed Unit-tests for oriented (OrientedGraphTest) and undirected (UndirectedGraphTest) graphs.
+Tests checked ways of search existing and not existing paths for oriented and undirected graphs with using all supported algorithms.
 
-Проверить работу библиотеки можно в консольном режиме.
-В качестве исходных данных должны быть модель графа и алгоритм поиска графов (необязательный параметрб по умолчанию: DFS).
-Модель графа описана в виде JSON в файле. Пример:
+Show the operations of the library can be in console mode.
+Source params should be graph model and graph path search algorithm (optional, default: DFS)
 
-{"orientation": 1, "edges":[[1,3], [3,2], [3,4], [4,5]]}
+Graph model is presented in JSON file, example: {"orientation": 1, "edges":[[1,3], [3,2], [3,4], [4,5]]}
+Graph direction (orientation): 0 - undirected, 1 - oriented
 
-Направленность графа (orientation): 0 - неориентированнй, 1 - неориентированный
-
-Пример запуск приложения в консольном режиме:
+Example run of application in console mode:
 java -jar target/GraphSimpleDemo.jar -model_file data/ModelGraph1.json -algorithm DFS
 
-Далее программа в интерактивном режиме попросит ввести исходную и конечную вершину для поиска пути.
-Результат представлен в виде списка переходов.
+Next, the program interactively ask you to enter the source and target vertexes for path search.
+Result is presented as a list of edges.
 
 java -jar target/GraphSimpleDemo.jar -model_file data/ModelGraph1.json -algorithm DFS
 Enter start vertex: 1
 Enter finish vertex: 5
 Result path: [(1) -> (3), (3) -> (4), (4) -> (5)], algorithm: DFS
 
-Примеры моделей графов лежат в директрии ./data, исполняемые jar файл библиотеки target/GraphSimpleDemo.jar.
+Examples of graph models locate in directory ./data of project catalog, executable jar library file is target/GraphSimpleDemo.jar
 
-Сборка проекта производится с помощью Maven 3.0.5, Java 1.7. Также приложены настройки проекта в Intellij Idea v14.
+Build project is carried of Maven 3.0.5 on Java 1.7. Also attached Intellij Idea v14 project settings.
